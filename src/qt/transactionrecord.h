@@ -62,6 +62,74 @@ public:
     int cur_num_blocks;
 };
 
+/** UI model for wasm transaction data
+ */
+class WasmTransaction
+{
+public:
+    WasmTransaction():
+        data("")
+    { }
+
+    /// Data
+    string data;
+};
+
+/** UI model for store wasm transaction data
+ */
+class StoreWasm: public WasmTransaction
+{
+public:
+    StoreWasm():
+        id(0), wasmCode("")
+    { }
+
+    /// wasm code id
+    uint64 id;
+
+    /// wasm code bytes
+    string wasmCode;
+};
+
+/** UI model for instantiate wasm transaction data
+ */
+class InstantiateWasm: public WasmTransaction
+{
+public:
+    InstantiateWasm():
+        id(0), bytes("")
+    { }
+
+    /// wasm code id
+    uint64 id;
+
+    /// wasm code bytes
+    string bytes;
+};
+
+/** UI model for execute wasm transaction data
+ */
+class ExecuteWasm: public WasmTransaction
+{
+public:
+    ExecuteWasm():
+        id(0), bytes("")
+    { }
+
+    /// wasm code id
+    uint64 id;
+
+    /// method name
+    string method;
+
+    /// input parameters
+    string input;
+
+    /// output data
+    string output;
+};
+
+
 /** UI model for a transaction. A core transaction can be represented by multiple UI transactions if it has
     multiple outputs.
  */
@@ -141,6 +209,8 @@ public:
     /** Return whether a status update is needed.
      */
     bool statusUpdateNeeded();
+
+    InputData data; 
 };
 
 #endif // BITCOIN_QT_TRANSACTIONRECORD_H
