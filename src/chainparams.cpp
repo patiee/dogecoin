@@ -122,6 +122,11 @@ public:
         consensus.fAllowLegacyBlocks = true;
         consensus.nHeightEffective = 0;
 
+        // Smart contract fees
+        consensus.storeFee = 1;
+        consensus.instantiateFee = 1;
+        consensus.executeFee = 1;
+
         // Blocks 145000 - 371336 are Digishield without AuxPoW
         digishieldConsensus = consensus;
         digishieldConsensus.nHeightEffective = 145000;
@@ -228,7 +233,6 @@ public:
         strNetworkID = "test";
 
         // Blocks 0 - 144999 are pre-Digishield
-        consensus.nHeightEffective = 0;
         consensus.nPowTargetTimespan = 4 * 60 * 60; // pre-digishield: 4 hours
         consensus.fDigishieldDifficultyCalculation = false;
         consensus.nCoinbaseMaturity = 30;
@@ -275,6 +279,11 @@ public:
         consensus.fStrictChainId = false;
         consensus.nHeightEffective = 0;
         consensus.fAllowLegacyBlocks = true;
+
+        // Smart contract fees
+        consensus.storeFee = 1;
+        consensus.instantiateFee = 1;
+        consensus.executeFee = 1;
 
         // Blocks 145000 - 157499 are Digishield without minimum difficulty on all blocks
         digishieldConsensus = consensus;

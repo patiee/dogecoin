@@ -86,6 +86,11 @@ struct Params {
     struct Params *pLeft = nullptr;      // Left hand branch
     struct Params *pRight = nullptr;     // Right hand branch
     const Consensus::Params *GetConsensus(uint32_t nTargetHeight) const;
+
+    /** Smart contract fees */
+    uint256 storeFee;
+    uint256 instantiateFee;
+    uint256 executeFee;
 };
 } // namespace Consensus
 
