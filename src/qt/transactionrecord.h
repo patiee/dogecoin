@@ -76,7 +76,10 @@ public:
         SendToOther,
         RecvWithAddress,
         RecvFromOther,
-        SendToSelf
+        SendToSelf,
+        StoreWasm,
+        InstantiateWasm,
+        ExecuteWasm,
     };
 
     /** Number of confirmation recommended for accepting a transaction */
